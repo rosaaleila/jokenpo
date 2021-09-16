@@ -112,14 +112,19 @@ public class Jokenpo {
 					
 				//finalizando contador caso as vitorias sejam suficientes para nao podermos desempatar
 				
-				if (vitoriasPC >= partidas / 2 + 1 || vitoriasJog >= partidas / 2 + 1) {
+				if (vitoriasPC >= (partidas / 2 + 1) || vitoriasJog >= (partidas / 2 + 1)) {
 					contador = partidas;
 				}
 				
 				// criando rodadas extras
 				
 				if (contador == partidas) {
-					while (empates == (partidas / 2) || vitoriasPC == vitoriasJog) {
+					
+					if (vitoriasPC >= (partidas / 2 + 1) || vitoriasJog >= (partidas / 2 + 1)) {
+						empates = 0;
+					}
+					
+					while (empates >= (partidas / 2) || vitoriasPC == vitoriasJog) {
 					System.out.println("Partida bônus!!");
 					System.out.println();
 						
@@ -150,6 +155,8 @@ public class Jokenpo {
 						System.out.println();
 						empates++;
 					}
+					
+					empates--;
 					
 					//fim das rodadas
 					
